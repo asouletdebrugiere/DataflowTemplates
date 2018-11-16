@@ -210,8 +210,10 @@ public class WindowedFilenamePolicyTest {
     // Assert
     //
     assertThat(filename, is(notNullValue()));
-    assertThat(
-        filename.getCurrentDirectory().toString().endsWith("2017/01/08/10/"), is(equalTo(true)));
+    System.out.println("Output is " + filename.getCurrentDirectory().toString());
+            assertThat(
+        filename.getCurrentDirectory().toString().endsWith("2017/01/08/10/") ||
+                filename.getCurrentDirectory().toString().endsWith("2017\\01\\08\\10\\"), is(equalTo(true)));
     assertThat(filename.getFilename(), is(equalTo("output-001-of-001")));
   }
 
